@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Compare</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="app">
+    <header class="main-header">
+        <div class="header-title">
+            <h1>Text Compare</h1>
+            <p>코드 및 텍스트 변경 사항 비교</p>
+        </div>
+
+        <div class="diff-legend">
+            <div class="legend-item">
+                <span class="legend-color legend-whitespace"></span>
+                <span>공백</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color legend-changed"></span>
+                <span>수정</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color legend-added"></span>
+                <span>신규 생성</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color legend-deleted"></span>
+                <span>삭제</span>
+            </div>
+            <div class="legend-item">
+                <span class="legend-color legend-line"></span>
+                <span>변경 라인</span>
+            </div>
+        </div>
+    </header>
+
+    <section id="editorView">
+        <div class="editor-container">
+            <div class="editor-panel">
+                <div class="editor-title">기존 파일</div>
+                <textarea id="originalText" spellcheck="false" placeholder="기존 파일의 내용을 입력하세요."></textarea>
+            </div>
+
+            <div class="editor-panel">
+                <div class="editor-title">수정 파일</div>
+                <textarea id="compareText" spellcheck="false" placeholder="수정한 파일의 내용을 입력하세요."></textarea>
+            </div>
+        </div>
+
+        <div class="compare-area">
+            <button id="compareBtn" class="primary-button">비교하기</button>
+        </div>
+    </section>
+
+    <section id="diffView" class="hidden">
+        <div class="diff-toolbar">
+            <div class="summary-area">
+                <span id="summary">차이 없음</span>
+            </div>
+
+            <div class="navigation">
+                <button id="prevBtn">← 이전</button>
+                <span id="counter">0 / 0</span>
+                <button id="nextBtn">다음 →</button>
+            </div>
+
+            <button id="backBtn" class="secondary-button">편집으로 돌아가기</button>
+        </div>
+
+        <div class="diff-layout">
+            <div class="diff-pane">
+                <div class="pane-header">기존 파일</div>
+                <div id="leftPaneBody" class="pane-body"></div>
+            </div>
+
+            <div class="diff-pane">
+                <div class="pane-header">수정 파일</div>
+                <div id="rightPaneBody" class="pane-body"></div>
+            </div>
+        </div>
+    </section>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
